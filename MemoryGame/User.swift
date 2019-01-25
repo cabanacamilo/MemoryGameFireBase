@@ -14,5 +14,5 @@ class User
     var user = ""
     var password = ""
     var photoUser = ""
-    var flips = ""
+    var flips = 1001
 }

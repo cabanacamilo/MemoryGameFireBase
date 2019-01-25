@@ -504,7 +504,7 @@
                                 <rect key="frame" x="20" y="806" width="374" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idH-ai-1vW">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -514,23 +514,13 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oad-3K-oRZ">
-                                        <rect key="frame" x="131.5" y="0.0" width="111" height="36"/>
+                                        <rect key="frame" x="197" y="0.0" width="177" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Scores"/>
                                         <connections>
                                             <action selector="scoresButton:" destination="vt5-4O-dP9" eventType="touchUpInside" id="SFH-Yi-RT6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nS-AF-WPE">
-                                        <rect key="frame" x="262.5" y="0.0" width="111.5" height="36"/>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Sign Out"/>
-                                        <connections>
-                                            <action selector="signOutButton:" destination="vt5-4O-dP9" eventType="touchUpInside" id="HqG-Xy-57Q"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -681,17 +671,25 @@
                                                 <action selector="cancelButton:" destination="WsU-Iy-C5j" id="HCb-aB-uRI"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Play Game" id="7dD-cf-1dc">
+                                            <connections>
+                                                <action selector="playGameButton:" destination="WsU-Iy-C5j" id="mDq-Z4-bK4"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <searchBar contentMode="redraw" barStyle="black" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EQr-VI-VtH">
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="EQr-VI-VtH">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
+                                    <string>User</string>
+                                    <string>Score</string>
                                 </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="WsU-Iy-C5j" id="XlY-gK-3vU"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -712,10 +710,19 @@
                     <connections>
                         <outlet property="navigationBar" destination="OdK-QX-p4F" id="lfM-zs-2s5"/>
                         <outlet property="searchBar" destination="EQr-VI-VtH" id="MXP-aQ-CCC"/>
+                        <outlet property="searchDisplayController" destination="ikv-Jb-qFh" id="2kg-N0-oTU"/>
                         <outlet property="tableView" destination="X3y-o4-BKk" id="3W0-gr-CTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ec9-zh-4lO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ikv-Jb-qFh">
+                    <connections>
+                        <outlet property="delegate" destination="WsU-Iy-C5j" id="vOm-PT-fAn"/>
+                        <outlet property="searchContentsController" destination="WsU-Iy-C5j" id="tfG-Ey-izB"/>
+                        <outlet property="searchResultsDataSource" destination="WsU-Iy-C5j" id="h8D-yO-v8k"/>
+                        <outlet property="searchResultsDelegate" destination="WsU-Iy-C5j" id="IW2-kM-rnc"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2111.594202898551" y="-94.419642857142847"/>
         </scene>

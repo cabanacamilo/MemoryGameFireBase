@@ -106,7 +106,7 @@ class ViewPlayGameController: UIViewController {
             {
                 currentCounter = flipCounter
                 let userID = Auth.auth().currentUser?.uid
-                Database.database().reference().child("Users").child(userID!).updateChildValues(["Flip Counter": "\(currentCounter)"])
+                Database.database().reference().child("Users").child(userID!).updateChildValues(["Flip Counter": currentCounter])
             }
             
             title = " Game Over"
@@ -159,21 +159,6 @@ class ViewPlayGameController: UIViewController {
         self.present(GoToHome,animated: true, completion: nil)
     }
     
-    @IBAction func signOutButton(_ sender: UIButton)
-    {
-        do
-        {
-            try Auth.auth().signOut()
-            
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let GoToHome: ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            self.present(GoToHome,animated: true, completion: nil)
-        }
-        catch
-        {
-            print("There is a problem logging out")
-        }
-    }
     
     /*
     // MARK: - Navigation
