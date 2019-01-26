@@ -19,7 +19,6 @@ class ViewScoresController: UIViewController, UITableViewDelegate, UITableViewDa
     var userList = [User]()
     var searchUser = [User]()
     let cellId = "cellId"
-    let imageCache = NSCache<AnyObject, AnyObject>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,50 +94,22 @@ class ViewScoresController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! UserCell
         let user = searchUser[indexPath.row]
         
         cell.profileEmail.text = user.email
+        
         cell.profileUser.text = user.user
+        
+        cell.profilePhoto.image = UIImage(named: "user")
+        cell.profilePhoto.layer.cornerRadius = cell.profilePhoto.bounds.height / 2
+        cell.profilePhoto.clipsToBounds = true
+        cell.profilePhoto.loadImageUsingCache(urlString: user.photoUser)
+        
         cell.profileScore.text = "\(user.flips)"
         if user.flips > 1000
         {
             cell.profileScore.text = ""
-        }
-        cell.profilePhoto.image = UIImage(named: "user")
-        
-        cell.profilePhoto.layer.cornerRadius = cell.profilePhoto.bounds.height / 2
-        cell.profilePhoto.clipsToBounds = true
-        
-        cell.profilePhoto.image = nil
-        
-        if let cachedImage = imageCache.object(forKey: user.photoUser as AnyObject) as? UIImage
-        {
-            cell.profilePhoto.image = cachedImage
-        }
-        
-        if let url = URL(string: user.photoUser)
-        {
-            URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler:{ (data, response, error) in
-                if let data = data
-                {
-                    DispatchQueue.main.async {
-                        
-                        if let downloadedImage = UIImage(data: data)
-                        {
-                            self.imageCache.setObject(downloadedImage, forKey: user.photoUser as AnyObject)
-                            
-                            cell.profilePhoto.image = downloadedImage
-                        }
-                        
-                        //                        cell.profilePhoto.image = UIImage(data: data)
-                        
-                        
-                    }
-                }
-                
-            }).resume()
         }
         
         return cell
@@ -159,8 +130,39 @@ class ViewScoresController: UIViewController, UITableViewDelegate, UITableViewDa
         })
         tableView.reloadData()
     }
-    
+}
 
+let imageCache = NSCache<AnyObject, AnyObject>()
+
+extension UIImageView
+{
+    func loadImageUsingCache(urlString: String)
+    {
+        self.image = nil
+        
+        if let url = URL(string: urlString)
+        {
+            
+            if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage
+            {
+                self.image = cachedImage
+            }
+            URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler:{ (data, response, error) in
+                if let data = data
+                {
+                    DispatchQueue.main.async {
+                        
+                        if let downloadedImage = UIImage(data: data)
+                        {
+                            imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)
+                            
+                            self.image = downloadedImage
+                        }
+                    }
+                }
+            }).resume()
+        }
+    }
 }
 
 
