@@ -23,7 +23,6 @@ class ViewScoresController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        readUser()
         readAllUsers()
         
         // Do any additional setup after loading the view.
@@ -41,22 +40,6 @@ class ViewScoresController: UIViewController, UITableViewDelegate, UITableViewDa
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let GoToHome: ViewPlayGameController = storyboard.instantiateViewController(withIdentifier: "ViewPlayGameController") as! ViewPlayGameController
         self.present(GoToHome,animated: true, completion: nil)
-    }
-    
-    func readUser()
-    {
-        let userID = Auth.auth().currentUser?.uid
-        Database.database().reference().child("Users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            
-            let value = snapshot.value as? NSDictionary
-            let username = value?["User Name"] as? String ?? ""
-
-            self.navigationBar.topItem?.title = username
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
     }
     
     func readAllUsers()

@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class ViewMenuController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var currentUserLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +25,16 @@ class ViewMenuController: UIViewController {
         let userID = Auth.auth().currentUser?.uid
         Database.database().reference().child("Users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            
+
             let value = snapshot.value as? NSDictionary
             let username = value?["User Name"] as? String ?? ""
-            
-            self.nameLabel.text = "Hello \(username)"
+
+            self.currentUserLabel.text = "welcome \(username)"
             // ...
         }) { (error) in
             print(error.localizedDescription)
         }
-        
+
     }
     
     @IBAction func signOutButton(_ sender: UIButton)
@@ -67,6 +67,12 @@ class ViewMenuController: UIViewController {
         self.present(GoToHome,animated: true, completion: nil)
     }
     
+    @IBAction func settingsButton(_ sender: UIButton)
+    {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let GoToHome: ViewSettingsController = storyboard.instantiateViewController(withIdentifier: "ViewSettingsController") as! ViewSettingsController
+        self.present(GoToHome,animated: true, completion: nil)
+    }
     
     /*
     // MARK: - Navigation

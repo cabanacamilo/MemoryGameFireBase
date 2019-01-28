@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F15702D21BC606400AA8833 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15702C21BC606400AA8833 /* UserCell.swift */; };
+		2F4DB79F21FCE5BE0092A015 /* ViewSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4DB79E21FCE5BE0092A015 /* ViewSettingsController.swift */; };
+		2F4DB7A121FCFC310092A015 /* settingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4DB7A021FCFC310092A015 /* settingsCell.swift */; };
 		2F6F34C6218E259800F50BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F34C5218E259800F50BE5 /* AppDelegate.swift */; };
 		2F6F34C8218E259800F50BE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F34C7218E259800F50BE5 /* ViewController.swift */; };
 		2F6F34CB218E259800F50BE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F34C9218E259800F50BE5 /* Main.storyboard */; };
@@ -25,12 +27,17 @@
 		2F70ED522197678B00164584 /* dingwrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2F70ED4F2197678B00164584 /* dingwrong.wav */; };
 		2F70ED532197678B00164584 /* dingcorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2F70ED502197678B00164584 /* dingcorrect.wav */; };
 		2F70ED552197894800164584 /* ViewRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70ED542197894800164584 /* ViewRegisterController.swift */; };
+		2FB420F621FF877E00EEE04A /* ViewPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB420F521FF877E00EEE04A /* ViewPasswordController.swift */; };
+		2FB420F821FF87BF00EEE04A /* ViewLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB420F721FF87BF00EEE04A /* ViewLanguageController.swift */; };
+		2FB420FA21FF87DB00EEE04A /* ViewReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB420F921FF87DB00EEE04A /* ViewReportController.swift */; };
 		2FF4291D21A0BF8100326708 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4291C21A0BF8100326708 /* User.swift */; };
 		9F9C4E09A18A62B979C70686 /* Pods_MemoryGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7F55A342BF08956A4476C2 /* Pods_MemoryGame.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F15702C21BC606400AA8833 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		2F4DB79E21FCE5BE0092A015 /* ViewSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSettingsController.swift; sourceTree = "<group>"; };
+		2F4DB7A021FCFC310092A015 /* settingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsCell.swift; sourceTree = "<group>"; };
 		2F6F34C2218E259800F50BE5 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6F34C5218E259800F50BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F6F34C7218E259800F50BE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +57,9 @@
 		2F70ED4F2197678B00164584 /* dingwrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dingwrong.wav; sourceTree = "<group>"; };
 		2F70ED502197678B00164584 /* dingcorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dingcorrect.wav; sourceTree = "<group>"; };
 		2F70ED542197894800164584 /* ViewRegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRegisterController.swift; sourceTree = "<group>"; };
+		2FB420F521FF877E00EEE04A /* ViewPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPasswordController.swift; sourceTree = "<group>"; };
+		2FB420F721FF87BF00EEE04A /* ViewLanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLanguageController.swift; sourceTree = "<group>"; };
+		2FB420F921FF87DB00EEE04A /* ViewReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReportController.swift; sourceTree = "<group>"; };
 		2FF4291C21A0BF8100326708 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E10EC1265213C9F1B0FA1DFC /* Pods-MemoryGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoryGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemoryGame/Pods-MemoryGame.debug.xcconfig"; sourceTree = "<group>"; };
 		EE7F55A342BF08956A4476C2 /* Pods_MemoryGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoryGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,23 +99,17 @@
 		2F6F34C4218E259800F50BE5 /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
-				2F70ED4B2197673E00164584 /* Sounds */,
 				2F6F34C5218E259800F50BE5 /* AppDelegate.swift */,
-				2F6F34C7218E259800F50BE5 /* ViewController.swift */,
-				2F70ED542197894800164584 /* ViewRegisterController.swift */,
-				2F6F34D9218E330200F50BE5 /* ViewMenuController.swift */,
-				2F6F34DB218E493600F50BE5 /* ViewScoresController.swift */,
-				2F6F34DD218E494E00F50BE5 /* ViewPlayGameController.swift */,
-				2F15702C21BC606400AA8833 /* UserCell.swift */,
-				2FF4291C21A0BF8100326708 /* User.swift */,
-				2F70ED43219765B000164584 /* Card.swift */,
-				2F70ED49219766A400164584 /* SoundManager.swift */,
-				2F70ED452197661200164584 /* MemoryModel.swift */,
+				2F6F34CE218E259A00F50BE5 /* LaunchScreen.storyboard */,
+				2F6F34D7218E26F200F50BE5 /* GoogleService-Info.plist */,
+				2F6F34D1218E259A00F50BE5 /* Info.plist */,
+				2FB420FC21FF88D000EEE04A /* Score */,
+				2FB420FB21FF889400EEE04A /* CreateAccount */,
+				2FB420F421FF873B00EEE04A /* Settings */,
+				2FB420F321FF86BA00EEE04A /* Game */,
+				2F70ED4B2197673E00164584 /* Sounds */,
 				2F6F34C9218E259800F50BE5 /* Main.storyboard */,
 				2F6F34CC218E259A00F50BE5 /* Assets.xcassets */,
-				2F6F34CE218E259A00F50BE5 /* LaunchScreen.storyboard */,
-				2F6F34D1218E259A00F50BE5 /* Info.plist */,
-				2F6F34D7218E26F200F50BE5 /* GoogleService-Info.plist */,
 			);
 			path = MemoryGame;
 			sourceTree = "<group>";
@@ -119,6 +123,49 @@
 				2F70ED4C2197676D00164584 /* cardflip.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		2FB420F321FF86BA00EEE04A /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				2F6F34D9218E330200F50BE5 /* ViewMenuController.swift */,
+				2F70ED452197661200164584 /* MemoryModel.swift */,
+				2F70ED43219765B000164584 /* Card.swift */,
+				2F6F34DD218E494E00F50BE5 /* ViewPlayGameController.swift */,
+				2F70ED49219766A400164584 /* SoundManager.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		2FB420F421FF873B00EEE04A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2F4DB7A021FCFC310092A015 /* settingsCell.swift */,
+				2F4DB79E21FCE5BE0092A015 /* ViewSettingsController.swift */,
+				2FB420F521FF877E00EEE04A /* ViewPasswordController.swift */,
+				2FB420F721FF87BF00EEE04A /* ViewLanguageController.swift */,
+				2FB420F921FF87DB00EEE04A /* ViewReportController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2FB420FB21FF889400EEE04A /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				2FF4291C21A0BF8100326708 /* User.swift */,
+				2F70ED542197894800164584 /* ViewRegisterController.swift */,
+				2F6F34C7218E259800F50BE5 /* ViewController.swift */,
+			);
+			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		2FB420FC21FF88D000EEE04A /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				2F15702C21BC606400AA8833 /* UserCell.swift */,
+				2F6F34DB218E493600F50BE5 /* ViewScoresController.swift */,
+			);
+			path = Score;
 			sourceTree = "<group>";
 		};
 		6EE8339F690CF1BCA2873BF9 /* Pods */ = {
@@ -269,9 +316,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB420FA21FF87DB00EEE04A /* ViewReportController.swift in Sources */,
 				2F70ED552197894800164584 /* ViewRegisterController.swift in Sources */,
+				2F4DB7A121FCFC310092A015 /* settingsCell.swift in Sources */,
+				2FB420F821FF87BF00EEE04A /* ViewLanguageController.swift in Sources */,
 				2F6F34C8218E259800F50BE5 /* ViewController.swift in Sources */,
 				2F70ED4A219766A400164584 /* SoundManager.swift in Sources */,
+				2F4DB79F21FCE5BE0092A015 /* ViewSettingsController.swift in Sources */,
+				2FB420F621FF877E00EEE04A /* ViewPasswordController.swift in Sources */,
 				2F70ED44219765B000164584 /* Card.swift in Sources */,
 				2F6F34C6218E259800F50BE5 /* AppDelegate.swift in Sources */,
 				2F6F34DA218E330200F50BE5 /* ViewMenuController.swift in Sources */,
