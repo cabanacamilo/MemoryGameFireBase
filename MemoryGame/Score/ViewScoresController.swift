@@ -39,7 +39,7 @@ class ViewScoresController: UIViewController, UITableViewDelegate, UITableViewDa
     {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let GoToHome: ViewPlayGameController = storyboard.instantiateViewController(withIdentifier: "ViewPlayGameController") as! ViewPlayGameController
-        self.present(GoToHome,animated: true, completion: nil)
+        present(GoToHome,animated: true, completion: nil)
     }
     
     func readAllUsers()
@@ -63,7 +63,6 @@ class ViewScoresController: UIViewController, UITableViewDelegate, UITableViewDa
             self.searchUser = self.userList
             
             self.tableView.reloadData()
-            
             // ...
         }) { (error) in
             print(error.localizedDescription)
@@ -76,30 +75,11 @@ class ViewScoresController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! UserCell
         let user = searchUser[indexPath.row]
-        
-        cell.profileEmail.text = user.email
-        
-        cell.profileUser.text = user.user
-        
-        cell.profilePhoto.image = UIImage(named: "user")
-        cell.profilePhoto.layer.cornerRadius = cell.profilePhoto.bounds.height / 2
-        cell.profilePhoto.clipsToBounds = true
-        cell.profilePhoto.loadImageUsingCache(urlString: user.photoUser)
-        
-        cell.profileScore.text = "\(user.flips)"
-        if user.flips > 1000
-        {
-            cell.profileScore.text = ""
-        }
-        
+        cell.configure(with: user)
         return cell
     }
-    
-    
-    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
     {
@@ -123,29 +103,26 @@ extension UIImageView
     {
         self.image = nil
         
-        if let url = URL(string: urlString)
-        {
-            
-            if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage
-            {
-                self.image = cachedImage
-            }
-            URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler:{ (data, response, error) in
-                if let data = data
-                {
-                    DispatchQueue.main.async {
-                        
-                        if let downloadedImage = UIImage(data: data)
-                        {
-                            imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)
-                            
-                            self.image = downloadedImage
-                        }
-                    }
-                }
-            }).resume()
+        guard let url = URL(string: urlString) else { return }
+        
+        if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+            self.image = cachedImage
         }
+        
+        URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler:{ (data, response, error) in
+            guard let data = data else { return }
+
+            DispatchQueue.main.async {
+                if let downloadedImage = UIImage(data: data)
+                {
+                    imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)
+                    self.image = downloadedImage
+                }
+            }
+            
+        }).resume()
     }
+    
 }
 
 

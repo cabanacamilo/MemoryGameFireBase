@@ -22,11 +22,15 @@ class UserCell: UITableViewCell {
         profilePhoto.clipsToBounds = true
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configure(with user: User) {
+        profileEmail.text = user.email
+        profileUser.text = user.user
+        profilePhoto.image = UIImage(named: "user")
+        profilePhoto.layer.cornerRadius = profilePhoto.bounds.height / 2
+        profilePhoto.clipsToBounds = true
+        profilePhoto.loadImageUsingCache(urlString: user.photoUser)
+        profileScore.text = user.score
     }
 
 }
